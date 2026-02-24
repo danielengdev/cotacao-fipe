@@ -1,29 +1,49 @@
-<p>cotacao works!</p>
-<form>
+<form class="cotacao-form">
 
+  <h1 class="title">Cotação Tabela FIPE</h1>
+  <p class="subtitle">Consulte o valor atualizado do seu veículo</p>
+
+  <div class="field-group">
     <select [(ngModel)]="selectedMarca" (change)="getModelos()" name="marca">
-        <option value="">Marca</option>
-        @for (marca of marcas; track $index) {
+      <option value="">Selecione a Marca</option>
+      @for (marca of marcas; track marca.codigo) {
         <option [value]="marca.codigo">{{marca.nome}}</option>
-        }
+      }
     </select>
 
     <select [(ngModel)]="selectedModelo" (change)="getAnos()" name="modelo">
-        <option value="">Modelo</option>
-        @for (modelo of modelos; track $index) {
+      <option value="">Selecione o Modelo</option>
+      @for (modelo of modelos; track modelo.codigo) {
         <option [value]="modelo.codigo">{{modelo.nome}}</option>
-        }
+      }
     </select>
 
-    <select [(ngModel)]="selectedAno" (change)="getCotacao()"  name="ano">
-        <option value="">Ano</option>
-        @for (ano of anos; track $index) {
+    <select [(ngModel)]="selectedAno" (change)="getCotacao()" name="ano">
+      <option value="">Selecione o Ano</option>
+      @for (ano of anos; track ano.codigo) {
         <option [value]="ano.codigo">{{ano.nome}}</option>
-        }
+      }
     </select>
+  </div>
 
-    <select [(ngModel)]="selectedValor" name="valor">
-        <option value="">Valor</option>
-    </select>
+  @if (cotacao) {
+    <div class="resultado-card">
+
+      <h2>Resultado da Cotação</h2>
+
+      <div class="resultado-grid">
+        <div><span>Valor:</span> {{ cotacao.Valor }}</div>
+        <div><span>Marca:</span> {{ cotacao.Marca }}</div>
+        <div><span>Modelo:</span> {{ cotacao.Modelo }}</div>
+        <div><span>Ano Modelo:</span> {{ cotacao.AnoModelo }}</div>
+        <div><span>Combustível:</span> {{ cotacao.Combustivel }}</div>
+        <div><span>Código FIPE:</span> {{ cotacao.CodigoFipe }}</div>
+        <div><span>Mês Referência:</span> {{ cotacao.MesReferencia }}</div>
+        <div><span>Tipo Veículo:</span> {{ cotacao.TipoVeiculo }}</div>
+        <div><span>Sigla Combustível:</span> {{ cotacao.SiglaCombustivel }}</div>
+      </div>
+
+    </div>
+  }
 
 </form>
