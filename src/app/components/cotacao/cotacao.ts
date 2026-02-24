@@ -25,6 +25,7 @@ export class Cotacao implements OnInit {
   getMarcas(): void {
     this.srv.getMarcas().subscribe((data: any) => {
       this.marcas = data;
+      console.log(this.marcas);
     });
   }
 
