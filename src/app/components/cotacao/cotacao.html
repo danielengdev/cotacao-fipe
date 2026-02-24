@@ -1,0 +1,31 @@
+<p>cotacao works!</p>
+<form action="">
+    @if (marcas && marcas.length > 0) {
+    <select name="" id="">
+        <option value="">Marca</option>
+        @for (item of marcas; track $index) {
+        <option value="{{item.codico}}">{{item.nome}}</option>
+        }
+    </select>
+    }
+    @if (modelos && modelos.length > 0) {
+    <select name="" id="">
+        <option value="">Modelo</option>
+        @for (item of modelos; track $index) {
+        <option value="{{item.codico}}">{{item.nome}}</option>
+        }
+    </select>
+    }
+    @if (anos && anos.length > 0) {
+    <select name="" id="">
+        <option value="">Ano</option>
+        @for (item of anos; track $index) {
+        <option value="{{item.codico}}">{{item.nome}}</option>
+        }
+    </select>
+    }
+    <select name="" id="">
+        <option value="">Valor</option>
+    </select>
+
+</form>
