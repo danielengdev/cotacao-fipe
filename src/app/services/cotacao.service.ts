@@ -15,10 +15,10 @@ export class CotacaoService {
   getModelos(marcaId: number | string): Observable<any> {
     return this.http.get(`https://parallelum.com.br/fipe/api/v1/carros/marcas/${marcaId}/modelos`);
   }
-  getAnos(marcaId: number, modeloId: number): Observable<any> {
+  getAnos(marcaId: number | string, modeloId:  number | string): Observable<any> {
     return this.http.get(`https://parallelum.com.br/fipe/api/v1/carros/marcas/${marcaId}/modelos/${modeloId}/anos`);
   }
-  getCotacao(marcaId: number, modeloId: number, anoId: number): Observable<any> {
+  getCotacao(marcaId:  number | string, modeloId:  number | string, anoId:  number | string): Observable<any> {
     return this.http.get(`https://parallelum.com.br/fipe/api/v1/carros/marcas/${marcaId}/modelos/${modeloId}/anos/${anoId}`);
   }
   

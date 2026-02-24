@@ -42,14 +42,14 @@ export class Cotacao implements OnInit {
     });
   }
 
-  getAnos(codigoMarca: number, modeloId: number): void {
-    this.srv.getAnos(codigoMarca, modeloId).subscribe((data: any) => {
+  getAnos(): void {
+    this.srv.getAnos(this.selectedMarca, this.selectedModelo).subscribe((data: any) => {
       this.anos = data;
     });
   }
 
-  getCotacao(codigoMarca: number, modeloId: number, anoId: number): void {
-    this.srv.getCotacao(codigoMarca, modeloId, anoId).subscribe((data: any) => {
+  getCotacao(): void {
+    this.srv.getCotacao(this.selectedMarca, this.selectedModelo, this.selectedAno).subscribe((data: any) => {
       this.cotacao = data;
     });
   }
