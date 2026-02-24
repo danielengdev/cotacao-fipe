@@ -9,17 +9,19 @@ export class CotacaoService {
 
   constructor(private http: HttpClient) { }
 
+  URL_BASE = 'https://parallelum.com.br/fipe/api/v1/carros';
+
   getMarcas(): Observable<any> {
-    return this.http.get('https://parallelum.com.br/fipe/api/v1/carros/marcas');
+    return this.http.get(`${this.URL_BASE}/marcas`);
   }
   getModelos(marcaId: number | string): Observable<any> {
-    return this.http.get(`https://parallelum.com.br/fipe/api/v1/carros/marcas/${marcaId}/modelos`);
+    return this.http.get(`${this.URL_BASE}/marcas/${marcaId}/modelos`);
   }
   getAnos(marcaId: number | string, modeloId:  number | string): Observable<any> {
-    return this.http.get(`https://parallelum.com.br/fipe/api/v1/carros/marcas/${marcaId}/modelos/${modeloId}/anos`);
+    return this.http.get(`${this.URL_BASE}/marcas/${marcaId}/modelos/${modeloId}/anos`);
   }
   getCotacao(marcaId:  number | string, modeloId:  number | string, anoId:  number | string): Observable<any> {
-    return this.http.get(`https://parallelum.com.br/fipe/api/v1/carros/marcas/${marcaId}/modelos/${modeloId}/anos/${anoId}`);
+    return this.http.get(`${this.URL_BASE}/marcas/${marcaId}/modelos/${modeloId}/anos/${anoId}`);
   }
   
 }
