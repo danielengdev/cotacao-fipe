@@ -1,5 +1,5 @@
 export interface Data {
-    codico: string | number;
+    codigo: string | number;
     nome: string;
 }
 

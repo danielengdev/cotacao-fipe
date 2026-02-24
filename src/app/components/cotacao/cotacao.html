@@ -2,20 +2,20 @@
 <form action="">
     <select name="" id="">
         <option value="">Marca</option>
-        @for (item of marcas; track $index) {
-        <option value="{{item.codico}}">{{item.nome}}</option>
+        @for (marca of marcas; track $index) {
+        <option value="{{marca.codigo}}">{{marca.nome}}</option>
         }
     </select>
     <select name="" id="">
         <option value="">Modelo</option>
-        @for (item of modelos; track $index) {
-        <option value="{{item.codico}}">{{item.nome}}</option>
+        @for (modelo of modelos; track $index) {
+        <option value="{{modelo.codigo}}">{{modelo.nome}}</option>
         }
     </select>
     <select name="" id="">
         <option value="">Ano</option>
-        @for (item of anos; track $index) {
-        <option value="{{item.codico}}">{{item.nome}}</option>
+        @for (ano of anos; track $index) {
+        <option value="{{ano.codigo}}">{{ano.nome}}</option>
         }
     </select>
     <select name="" id="">
