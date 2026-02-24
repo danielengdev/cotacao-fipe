@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {CotacaoService} from '../../services/cotacao.service';
 import { Data } from '../../models/model';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-cotacao',
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './cotacao.html',
   styleUrl: './cotacao.scss',
 })
@@ -15,6 +16,11 @@ export class Cotacao implements OnInit {
   modelos: Data[] = [];
   anos: Data[] = [];
   cotacao!: Cotacao;
+
+  selectedMarca = '';
+  selectedModelo = '';
+  selectedAno = '';
+  selectedValor = '';
 
   constructor(public srv: CotacaoService) {
   }
@@ -30,8 +36,8 @@ export class Cotacao implements OnInit {
     });
   }
 
-  getModelos(codigoMarca: number): void {
-    this.srv.getModelos(codigoMarca).subscribe((data: any) => {
+  getModelos(): void {
+    this.srv.getModelos(this.selectedMarca).subscribe((data: any) => {
       this.modelos = data.modelos;
     });
   }

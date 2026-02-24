@@ -1,24 +1,28 @@
 <p>cotacao works!</p>
-<form action="">
-    <select name="" id="">
+<form>
+
+    <select [(ngModel)]="selectedMarca" (change)="getModelos()" name="marca">
         <option value="">Marca</option>
         @for (marca of marcas; track $index) {
-        <option value="{{marca.codigo}}">{{marca.nome}}</option>
+        <option [value]="marca.codigo">{{marca.nome}}</option>
         }
     </select>
-    <select name="" id="">
+
+    <select [(ngModel)]="selectedModelo" name="modelo">
         <option value="">Modelo</option>
         @for (modelo of modelos; track $index) {
-        <option value="{{modelo.codigo}}">{{modelo.nome}}</option>
+        <option [value]="modelo.codigo">{{modelo.nome}}</option>
         }
     </select>
-    <select name="" id="">
+
+    <select [(ngModel)]="selectedAno" name="ano">
         <option value="">Ano</option>
         @for (ano of anos; track $index) {
-        <option value="{{ano.codigo}}">{{ano.nome}}</option>
+        <option [value]="ano.codigo">{{ano.nome}}</option>
         }
     </select>
-    <select name="" id="">
+
+    <select [(ngModel)]="selectedValor" name="valor">
         <option value="">Valor</option>
     </select>
 

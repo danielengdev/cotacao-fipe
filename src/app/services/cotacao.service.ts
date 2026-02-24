@@ -12,7 +12,7 @@ export class CotacaoService {
   getMarcas(): Observable<any> {
     return this.http.get('https://parallelum.com.br/fipe/api/v1/carros/marcas');
   }
-  getModelos(marcaId: number): Observable<any> {
+  getModelos(marcaId: number | string): Observable<any> {
     return this.http.get(`https://parallelum.com.br/fipe/api/v1/carros/marcas/${marcaId}/modelos`);
   }
   getAnos(marcaId: number, modeloId: number): Observable<any> {
