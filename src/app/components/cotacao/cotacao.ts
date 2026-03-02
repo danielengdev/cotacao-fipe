@@ -3,6 +3,7 @@ import { CotacaoService} from '../../services/cotacao.service';
 import { Data, Cotacao as Cot } from '../../models/model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { CalculoService } from '../../services/calculo.service';
 
 @Component({
   selector: 'app-cotacao',
@@ -21,8 +22,13 @@ export class Cotacao implements OnInit {
   selectedModelo = '';
   selectedAno = '';
   selectedValor = '';
+  num1!: number;
+  num2!: number;
 
-  constructor(public srv: CotacaoService) {}
+  constructor(
+    public srv: CotacaoService, 
+    public calculadoraPrincipal: CalculoService
+  ) {}
   
   ngOnInit(): void {
     this.getMarcas();
@@ -33,6 +39,14 @@ export class Cotacao implements OnInit {
       this.marcas = data;
       console.log(this.marcas);
     });
+  }
+
+  soma(a: number, b: number, c: number): number {
+    return this.calculadoraPrincipal.soma(a, b, c);
+  }
+
+  opoeracaoMenos(a: number, b: number): number {
+    return this.calculadoraPrincipal.subtrai(a, b);
   }
 
   getModelos(): void {
